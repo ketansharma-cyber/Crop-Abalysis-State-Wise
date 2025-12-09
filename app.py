@@ -170,7 +170,7 @@ def main():
         
         with col2:
             st.subheader("Time series")
-            st.markdown("*(Time Series chart with Years in X-axis and Area, Production and Yield on Y-axis >> preferably on one chart >> can be broken into multiple charts as well)*")
+            st.markdown("*(Time Series chart with Years in X-axis and Area, Production and Yield on Y-axis)*")
             if len(filtered_df) > 0:
                 yearly_data = filtered_df.groupby('Year_Start').agg({
                     'Area': 'sum',
@@ -213,7 +213,7 @@ def main():
         
         with col2:
             st.subheader("Yield")
-            st.markdown("*Map (choropleth of yield) >> preferably at district level, but, state level accepted*")
+            st.markdown("*Map (choropleth of yield)*")
             if len(filtered_df) > 0:
                
                 mapped_df = map_state_names(filtered_df)
@@ -268,7 +268,7 @@ def main():
     
     with tab2:
         st.subheader("Map View")
-        st.info(" View map >> select State >> shows district-level bars and trend")
+        
         
       
         if len(df) > 0:
