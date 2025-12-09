@@ -140,7 +140,7 @@ def main():
             current = datetime.now().year  # Get current year dynamically
             years = list(range(1990, current+1))  
             years.reverse()  # Show newest first
-            selected_years = st.multiselect("Year Selector (multi-select)", years, default=years[:5] if len(years) >= 5 else years)
+            selected_years = st.multiselect("Year Selector (multi-select)", years, default=[2016, 2017, 2018, 2019, 2020, 2021] if len(years) >= 5 else years)
         
         st.markdown('</div>', unsafe_allow_html=True)
         
