@@ -117,12 +117,12 @@ def main():
         
         with col1:
             states = sorted(df['State'].dropna().unique())
-            selected_states = st.multiselect("State (multi-select)", states, default=[states[0]] if states else [])
+            selected_states = st.multiselect("State (multi-select)", states,default=['Gujarat'] if 'Gujarat' in states else [states[0]])
         
         with col2:
             if selected_states:
                 districts = sorted(df[df['State'].isin(selected_states)]['District'].dropna().unique())
-                selected_districts = st.multiselect("District (multi-select)", districts, default=[districts[0]] if districts else [])
+                selected_districts = st.multiselect("District (multi-select)", districts,default=['AHAMDABAD'] if 'AHAMDABAD' in states else [])
             else:
                 selected_districts = st.multiselect("District (multi-select)", [], default=[])
         
