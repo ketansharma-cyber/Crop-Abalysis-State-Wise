@@ -9,7 +9,7 @@ from datetime import datetime
 # Page configuration
 st.set_page_config(
     page_title="Crop Production & Yield Dashboard",
-    page_icon="🌾",
+    page_icon="$$$$",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -48,7 +48,7 @@ st.markdown("""
 
 @st.cache_data
 def load_data():
-    """Load and preprocess the agriculture data"""
+    
     df = pd.read_csv('India Agriculture Crop Production.csv')
     df.columns = df.columns.str.strip()
     df['Production'] = pd.to_numeric(df['Production'], errors='coerce')
@@ -59,12 +59,12 @@ def load_data():
 
 @st.cache_data
 def load_geojson():
-    """Load India state GeoJSON"""
+   
     with open('india_state_geo.json', 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def create_correlation_matrix(df):
-    """Create correlation matrix for Area, Production, and Yield"""
+    
     corr_data = df[['Area', 'Production', 'Yield']].corr()
     
     fig = go.Figure(data=go.Heatmap(
@@ -87,7 +87,7 @@ def create_correlation_matrix(df):
     return fig
 
 def map_state_names(df):
-    """Map CSV state names to GeoJSON state names"""
+   
     state_mapping = {
         'Andaman and Nicobar Islands': 'Andaman and Nicobar',
         'Telangana': 'Telangana', 
